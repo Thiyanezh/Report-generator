@@ -1,0 +1,83 @@
+.but{
+    font-weight: 600;
+    font-family: sans-serif;
+    background-color: rgb(233, 147, 147);
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 15px;
+    width: fit-content;
+    border-color: transparent;
+    margin: 5px;
+}
+.but:hover{
+    background-color:rgb(237, 182, 182);
+    color: #050801;
+    box-shadow: 0px 0px 5px whitesmoke, 0px 0px 5px whitesmoke, 0px 0px 5px whitesmoke, 0px 0px 5px whitesmoke;
+    }
+.bord{
+    display: inline-flex;
+    gap: 5px;
+    flex-direction: column;
+    padding: 40px;
+    margin: 1cm;
+    width: auto;
+}   
+.neonText {
+    font-weight: bolder;
+    font-size: 22px;
+    color: #e85b5b;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px rgb(233, 147, 147),
+        0 0 82px rgb(233, 147, 147),
+        0 0 92px rgb(233, 147, 147),
+        0 0 102px rgb(233, 147, 147),
+        0 0 151px rgb(233, 147, 147);
+  }
+h1
+{
+    font-family:sans-serif;
+    background-color: rgb(233, 147, 147);
+    padding: 1cm;
+    box-shadow:#000000;
+    margin: .5cm;
+}
+#Name
+{
+    height: 1.5cm;
+}
+#pass{   
+    height: 3cm;
+    width: 12cm;
+}
+.al{
+    margin: 2cm;
+    background-color: #fff;
+}
+.image{
+    display: inline-flex;
+    flex-direction: row-reverse;
+    padding: auto;
+    padding: 2cm;
+    flex-wrap: wrap;
+}
+.out
+{
+    display: inline-flex;
+    flex-direction: row;
+
+}
+img{
+    transform: rotate(-30deg);
+    box-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 22px rgb(233, 147, 147),
+    0 0 22px rgb(233, 147, 147),
+    0 0 42px rgb(233, 147, 147),
+    0 0 42px rgb(233, 147, 147),
+    0 0 51px rgb(233, 147, 147);
+}
