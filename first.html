@@ -29,8 +29,10 @@
           <textarea id="Pass" rows="5"cols="50"></textarea>
       </div>
       <button onclick="get();" class="but">submit</button>
-      <button onclick="run();" class="but" id="start">start</button>
+      <button onclick="run();" class="but" id="start" style="display: none;">start</button>
     </div>
+    </div>
+    <div class="section">
     </div>
     <div class="al">
       <div>
@@ -56,6 +58,7 @@
         const description = document.getElementById("Pass").value;
         sessionStorage.setItem("topic", topic);
         sessionStorage.setItem("description", description);
+        document.getElementById("start").style.display = "block";
       }
     </script>
     <script type="importmap">
@@ -90,22 +93,21 @@
         alert("please!!! enter the topic and describe it clearly to get accurate results");
         return;
       }
-
         // For text-only input, use the gemini-pro model
         const model = genAI.getGenerativeModel({ model: "gemini-pro"});
-        const prompt = "Compose an abstract summarizing my project on "+storedTopic+ ","+ storedDescription+"DON'T ADD ANY THING OTHER THAN INSTRUCTED FORMATTED IT TO IN A4";
+        const prompt = "Compose an abstract summarizing my project on "+storedTopic+ ","+ storedDescription+"DON'T ADD ANY THING OTHER THAN INSTRUCTED FORMATTED IT IN A SINGLE PARAGRAPH AND NEW LINE WHEN EVERY REQUIRED";
         const result = await model.generateContent(prompt);
         const response = await result.response;
         const text = response.text();
         let abt = text.replace(/\*/g, ' ');
         document.getElementById('show').innerHTML=abt;
 
-        const prompt1 = "list 20 research papers based on the topic "+storedTopic+" make sure that it really exist and give a small discription on each reference and add one author followed by et.al";
-        const result1 = await model.generateContent(prompt1);
-        const response1 = await result1.response;
-        const text1 = response1.text();
-        let paper = text1.replace(/\*/g, ' ');
-        document.getElementById('show1').innerHTML=paper;
+        const prompt3 = "list hardware and software requirement list on topic "+storedTopic+" "+storedDescription+"start from new line after each sub topic DON'T ADD ANY THING OTHER THAN INSTRUCTED";
+        const result3 = await model.generateContent(prompt3);
+        const response3 = await result3.response;
+        let text3 = response3.text();
+        let ans = text3.replace(/\*/g, ' ');
+        document.getElementById('show1').innerHTML=ans;
 
         const prompt2 = "create a methodology on topic "+storedTopic+" that i"+storedDescription+" DON'T ADD ANY THING OTHER THAN INSTRUCTED";
         const result2 = await model.generateContent(prompt2);
@@ -113,21 +115,21 @@
         const text2 = response2.text();
         let meth = text2.replace(/\*/g, ' ');
         document.getElementById('show2').innerHTML=meth;
-        
-        const prompt3 = "list hardware and software requirement list on topic "+storedTopic+" "+storedDescription+"start from new line after each sub topic DON'T ADD ANY THING OTHER THAN INSTRUCTED";
-        const result3 = await model.generateContent(prompt3);
-        const response3 = await result3.response;
-        let text3 = response3.text();
-        let ans = text3.replace(/\*/g, ' ');
-        document.getElementById('show3').innerHTML=ans;
 
         const prompt4 = "write results ,conclution and future scope on topics "+storedTopic+" that i "+storedDescription+" DON'T ADD ANY THING OTHER THAN INSTRUCTED AND MAINTAIN THE SAME FORMATE";
         const result4 = await model.generateContent(prompt4);
         const response4 = await result4.response;
         let text4 = response4.text();
         let ans_ = text4.replace(/\*/g, ' ');
-        document.getElementById("show4").innerHTML=ans_;
-        
+        document.getElementById("show3").innerHTML=ans_;
+
+        const prompt1 = "list 20 research papers based on the topic "+storedTopic+" make sure that it really exist and give a small discription on each reference and add one author followed by et.al";
+        const result1 = await model.generateContent(prompt1);
+        const response1 = await result1.response;
+        const text1 = response1.text();
+        let paper = text1.replace(/\*/g, ' ');
+        document.getElementById('show4').innerHTML=paper;
+
         sessionStorage.clear();
       } 
       const button = document.getElementById("start");
