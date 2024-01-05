@@ -20,7 +20,7 @@
     </div>
     <div class="bord">
       <div class="place">
-          <p class="neonText">Enter topic:</p>
+          <p class="neonText">Enter topic of your project:</p>
           <textarea id="Name" rows="1" cols="40"></textarea>
       </div>
       <br>
@@ -36,19 +36,19 @@
     </div>
     <div class="al">
       <div>
-        <pre id = "show"></pre>
+        <pre id = "show">Abstract</pre>
     </div>  
     <div>
-      <pre id="show1"></pre>
+      <pre id="show1">Hardware and Software Requirements</pre>
     </div>
     <div>
-      <pre id="show2"></pre>
+      <pre id="show2">Methodology</pre>
     </div>
     <div>
-      <pre id="show3"></pre>
+      <pre id="show3">Results ,Conclusion and future scope</pre>
     </div>
     <div>
-      <pre id="show4"></pre>
+      <pre id="show4">Research Papers</pre>
     </div>
     </div>
     <script>
@@ -116,7 +116,7 @@
         let meth = text2.replace(/\*/g, ' ');
         document.getElementById('show2').innerHTML=meth;
 
-        const prompt4 = "write results ,conclution and future scope on topics "+storedTopic+" that i "+storedDescription+" DON'T ADD ANY THING OTHER THAN INSTRUCTED AND MAINTAIN THE SAME FORMATE";
+        const prompt4 = "write results ,conclusion and future scope on topics "+storedTopic+" that i "+storedDescription+" DON'T ADD ANY THING OTHER THAN INSTRUCTED AND MAINTAIN THE SAME FORMATE";
         const result4 = await model.generateContent(prompt4);
         const response4 = await result4.response;
         let text4 = response4.text();
